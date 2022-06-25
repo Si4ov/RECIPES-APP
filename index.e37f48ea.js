@@ -592,7 +592,6 @@ const controlAddBookmark = function() {
     // Add or del bookmark
     if (!_modelJs.state.recipe.bookmarked) _modelJs.addBookmark(_modelJs.state.recipe);
     else _modelJs.deleteBookmark(_modelJs.state.recipe.id);
-    console.log(_modelJs.state.recipe);
     (0, _recipeViewJsDefault.default).update(_modelJs.state.recipe);
     // Render bookmarks
     (0, _bookmarksViewJsDefault.default).render(_modelJs.state.bookmarks);
@@ -604,7 +603,6 @@ const controlAddRecipe = async function(newRecipe) {
     try {
         (0, _addRecipeViewJsDefault.default).renderSpiner();
         await _modelJs.uploadRecipe(newRecipe);
-        console.log(_modelJs.state.recipe);
         (0, _recipeViewJsDefault.default).render(_modelJs.state.recipe);
         (0, _addRecipeViewJsDefault.default).renderMessage();
         (0, _bookmarksViewJsDefault.default).render(_modelJs.state.bookmarks);
@@ -3033,7 +3031,7 @@ var _previewViewJsDefault = parcelHelpers.interopDefault(_previewViewJs);
 class ResultsView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".results");
     _data;
-    _errorMessage = `No recipes found for your query dumbass. Please try another one!`;
+    _errorMessage = `No recipes found for your query. Please try another one!`;
     _okMessage = `ALL GOOD`;
     _generateMarkup() {
         return this._data.map((result)=>(0, _previewViewJsDefault.default).render(result, false)).join("");
@@ -3159,7 +3157,7 @@ var _viewJs = require("./View.js");
 var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
 class AddRecipeView extends (0, _viewJsDefault.default) {
     _parentElement = document.querySelector(".upload");
-    _okMessage = "Recipe added! Now Fuck off!";
+    _okMessage = "Recipe added!";
     _window = document.querySelector(".add-recipe-window");
     _overlay = document.querySelector(".overlay");
     _btnOpen = document.querySelector(".nav__btn--add-recipe");
